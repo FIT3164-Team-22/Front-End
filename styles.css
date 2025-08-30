@@ -1,0 +1,42 @@
+html,
+body {
+    background-color: #c2c2c2;
+}
+
+p {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1,h2,h3,h4 {
+    font-weight: bold;
+    font-family: "Fondamento", cursive;
+}
+
+
+.wholepage{
+    width: 100%;
+}
+
+.leftside_filters{
+    float: left;
+    width: 25%;
+}
+
+.rightside_mainpage{
+    float: right;
+    width: 75%;
+}
+
+#geographic_map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+#linechart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
