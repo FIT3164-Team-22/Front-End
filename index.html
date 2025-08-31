@@ -2,142 +2,117 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Data Explorer</title>
 
-    <title>FIT3164 - Project 8 - DS22</title>
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+    <!-- Leaflet.js CSS for the interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="" />
 
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Vega Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
 </head>
-
-
-<!-- Any comments or thoughts to get back to go here -->
 
 <body>
 
-    <div class="whole page">
-        <div class="leftside_filters">
-            <h3>BOM Data Explorer</h3>
-            <p><strong>Time Period</strong></p>
-            <div class="pure-g">
-                <label for="start_date">Start Date</label>
-                <input type="date" id="start_date" name="start_date" min="2020-01-01" max="2024-12-31">
-            </div>
-            <div class="pure-g">
-                <label for="end_date">End Date</label>
-                <input type="date" id="end_date" name="end_date" min="2020-01-01" max="2024-12-31">
-            </div>
-            
-            <p><strong>Meteorological Variables</strong></p>
-            <div class="pure-g">
-                <input type="checkbox" id="temperature" name="temperature" value="temperature">
-                <label for="temperature">Temperature</label>
-            </div>
-            <div class="pure-g">
-                <input type="checkbox" id="wind" name="wind" value="wind">
-                <label for="wind">Wind</label>
-            </div>
-            <div class="pure-g">
-                <input type="checkbox" id="rainfall" name="rainfall" value="rainfall">
-                <label for="rainfall">Rainfall</label>
-            </div>
-            <div class="pure-g">
-                <input type="checkbox" id="humidity" name="humidity" value="humidity">
-                <label for="humidity">Humidity</label>
-            </div>
-            <div class="pure-g">
-                <input type="checkbox" id="solar_radiation" name="solar_radiation" value="solar_radiation">
-                <label for="solar_radiation">Solar Radiation</label>
-            </div>
+    <div class="page-container">
+        <!-- Filters and Controls Section -->
+        <aside class="filters-panel">
+            <h3 class="sidebar-title">BOM Data Explorer</h3>
+            <form>
+                <fieldset>
+                    <legend>Time Period</legend>
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date" value="2022-01-01">
+                    <label for="end_date">End Date</label>
+                    <input type="date" id="end_date" name="end_date" value="2023-01-01">
+                </fieldset>
 
-            <p><strong>Geographic Region</strong><br>Select Predefined Region</p>
+                <fieldset>
+                    <legend>Meteorological Variables</legend>
+                    <label class="checkbox-label"><input type="checkbox" name="temperature"> Temperature</label>
+                    <label class="checkbox-label"><input type="checkbox" name="wind"> Wind</label>
+                    <label class="checkbox-label"><input type="checkbox" name="rainfall"> Rainfall</label>
+                    <label class="checkbox-label"><input type="checkbox" name="humidity"> Humidity</label>
+                    <label class="checkbox-label"><input type="checkbox" name="solar_radiation"> Solar Radiation</label>
+                </fieldset>
 
-            <div class="pure-g">
-                <select name="regionselector" id="regionselector">
-                    <option value="all_australia">All Australia</option>
-                    <option value="Victoria">Victoria</option>
-                    <option value="South Australia">South Australia</option>
-                    <option value="Western Australia">Western Australia</option>
-                    <option value="Northern Territory">Northern Territory</option>
-                    <option value="Queensland">Queensland</option>
-                    <option value="New South Wales">New South Wales</option>
-                    <option value="Tasmania">Tasmania</option>
-                </select>
-            </div>
-            <div class="pure-g">
-                <button>Draw Cusotm Area</button>
-            </div>
+                <fieldset>
+                    <legend>Geographic Region</legend>
+                    <label for="regionselector">Predefined Region</label>
+                    <select id="regionselector" name="regionselector">
+                        <option value="all_australia">All Australia</option>
+                        <option value="Victoria">Victoria</option>
+                        <option value="South Australia">South Australia</option>
+                        <option value="Western Australia">Western Australia</option>
+                        <option value="Northern Territory">Northern Territory</option>
+                        <option value="Queensland">Queensland</option>
+                        <option value="New South Wales">New South Wales</option>
+                        <option value="Tasmania">Tasmania</option>
+                    </select>
+                    <button type="button" class="button button-secondary">Draw Custom Area</button>
+                </fieldset>
+                <button type="submit" class="button button-primary">Update Visualisation</button>
+            </form>
+        </aside>
 
-            <div class="pure-g">
-                <button>Update Visualisation</button>
-            </div>
-        </div>
-        
-        <div class="rightside_mainpage">
-            <h2>Meteorological Data Dashboard</h2>
-            <p>Javascript would populate the following dynamically: Filters, Region and Period</p>
-            <div class="pure-g">
-                <div class="pure-u-2-3">
-                    <div class="pure-u-1-2" id="geographic_map">
-                        <!-- Just a placeholder value until we figure out the vegalite code-->
-                         <img src="https://i.pinimg.com/736x/31/45/19/3145191fb7966bdd3b234903acb349cc.jpg" alt="Red Bull gives you Rahul">
+        <!-- Main Dashboard Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Meteorological Data Dashboard</h2>
+                <p>Displaying data for <mark>All Australia</mark> from <mark>selected dates</mark>.</p>
+            </header>
+
+            <div class="grid">
+                <article class="card span-2">
+                    <div id="map"></div>
+                </article>
+                <article class="card">
+                    <h4>Time Series Chart</h4>
+                    <div id="linechart">
+                        <img src="https://placehold.co/600x400/e1e6f0/435b83?text=Time+Series" alt="Placeholder for a time series line chart">
                     </div>
-                </div>
-                <div class="pure-u-1-3">
-                    <div class="pure-u-1-2" id="linechart">
-                        <!-- Just a placeholder value until we figure out the vegalite code -->
-                        <img src="TheRonaldoOfFIT3164.jpg" alt="The Legendary Daniel Jitnah">
-                    </div>
-                </div>
+                </article>
             </div>
 
-            <div class="pure-g">
-                <div class="pure-u-1-3">
+            <div class="grid">
+                <article class="card">
                     <h4>Location-Based Analysis</h4>
-                    <p>Dominant Factor: </p>
-                    <p>Correlation Found: </p>
-                    <p>Other Comments: </p>
-                </div>
-                <div class="pure-u-1-3">
+                    <p><strong>Dominant Factor:</strong> Temperature</p>
+                    <p><strong>Correlation Found:</strong> High</p>
+                </article>
+                <article class="card">
                     <h4>Data Export</h4>
-                    <p>Download the filtered dataset for offline analysis</p>
-                    <button>Export Data (CSV)</button>
-                </div>
-                <div class="pure-u-1-3">
+                    <p>Download the filtered dataset for offline analysis.</p>
+                    <button type="button" class="button button-primary">Export Data (CSV)</button>
+                </article>
+                <article class="card">
                     <h4>User Manual</h4>
-                    <p>View the manual for how to navigate this page</p>
-                    <button>View Manual</button>
-                </div>
+                    <p>Need help? View the manual for how to use this page.</p>
+                    <button type="button" class="button button-secondary">View Manual</button>
+                </article>
             </div>
-        </div>  
+        </main>
     </div>
 
-    <!--
-    <h5 class="conclusion" id="conclusion_title">Produced by:</h5>
-        <p class="conclusion" id="conclusion_text">- Abdullah Sabaa <br>
-            - Rahul Pejathaya <br>
-            - Alice (Xinyi) Zhou
-        </p>
+    <!-- Leaflet.js JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    -->
-    <script src="script.js"></script>
+    <!-- Custom Script to Initialize Map -->
+    <script>
+        var map = L.map('map').setView([-25.27, 133.77], 4);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var marker = L.marker([-33.86, 151.20]).addTo(map).bindPopup('Sydney, Australia.');
+    </script>
 </body>
 
 </html>
