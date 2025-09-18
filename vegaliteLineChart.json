@@ -1,0 +1,16 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Temperature by Day of Week",
+    "width": 325,
+    "height": 285,
+    "data": {
+      "url": "https://raw.githubusercontent.com/FIT3164-Team-22/Front-End/refs/heads/main/LineChartTempData.csv",
+      "format": {"type": "csv"}
+    },
+    "mark": {"type": "line"},
+    "encoding": {
+    "x": {"field": "Day", "type": "ordinal", "title": "Day"},
+    "y": {"field": "Temperature", "type": "quantitative", "title": "Temperature (°C)"}
+  }
+}
+
