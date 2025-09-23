@@ -1,7 +1,5 @@
 html,
-body {
-    background-color: #c2c2c2;
-}
+body {}
 
 p {
     font-family: "Montserrat", sans-serif;
@@ -20,11 +18,34 @@ h1,h2,h3,h4 {
 .leftside_filters{
     float: left;
     width: 25%;
+    height: 100vh;
+    background-color: #FFFFFF;
+}
+
+#exportbutton, #manualbutton{
+    background-color: #6D767E;
+    color: white;
+}
+
+.leftsideheaders{
+    color: #007BFF;
+}
+
+#updatevizbutton{
+    background-color: #007BFF;
+    color: white;
+}
+
+#customareabutton{
+    background-color: white;
+    color: #007BFF;
 }
 
 .rightside_mainpage{
     float: right;
     width: 75%;
+    height: 100vh;
+    background-color: #f3f3f3;
 }
 
 #geographic_map {
