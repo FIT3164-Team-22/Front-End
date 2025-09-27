@@ -1,34 +1,88 @@
-html,
-body {}
-
 p {
-    font-family: "Montserrat", sans-serif;
+    font-family: serif;
 }
 
 h1,h2,h3,h4 {
     font-weight: bold;
-    font-family: "Fondamento", cursive;
-}
-
-
-.wholepage{
-    width: 100%;
+    font-family: sans-serif;
 }
 
 .leftside_filters{
     float: left;
-    width: 25%;
+    width: 24%;
     height: 100vh;
     background-color: #FFFFFF;
+    box-shadow: 0px 0 20px rgba(128, 128, 128, 0.3);
+}
+
+.geographicregiondiv, .Meteovarsdiv, .timeperioddiv{
+    margin-left: 35px;
+}
+
+.timeperioddiv{
+    margin-top: 40px;
+}
+
+#customareabutton, #updatevizbutton{
+    padding: 8px;
+    border-radius:10px;
+}
+
+#customareabutton:hover{
+    box-shadow: 0 4px 4px gray;
+    transition: 0.3s;
+}
+
+#updatevizbutton:hover{
+    box-shadow: 0 4px 12px #228dff;
+    transition: 0.3s;
 }
 
 #exportbutton, #manualbutton{
     background-color: #6D767E;
     color: white;
+    padding: 8px;
+    border-radius: 10px;
 }
 
-.leftsideheaders{
-    color: #007BFF;
+#exportbutton:hover,#manualbutton:hover{
+    background-color: white;
+    color: #6D767E;
+    transition: 0.3s;
+}
+
+#exportbutton:active,#manualbutton:active, #customareabutton:active, #updatevizbutton:active{
+    opacity: 0.2;
+}
+
+#container1:hover,#container2:hover,#container3:hover, .vizcontainer:hover{
+    box-shadow: 0 0 6px rgb(64, 64, 64);
+    transition: 0.7s;
+    transform: scale(1.04);
+}
+
+.vizcontainer{
+    width: fit-content;
+    background-color: white;
+    padding: 8px;
+    border-radius: 10px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.3);
+}
+
+#rightsubtitle{
+    font-size:  15px;
+    margin-top:-13px;
+    margin-bottom: 25px;
+}
+
+#container1,#container2,#container3{
+    width: fit-content;
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.3);
 }
 
 #updatevizbutton{
@@ -41,11 +95,29 @@ h1,h2,h3,h4 {
     color: #007BFF;
 }
 
+.leftsidefiltersdivider{
+    width: 80%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#customareabutton{
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+#customareabutton, #updatevizbutton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
 .rightside_mainpage{
     float: right;
     width: 75%;
     height: 100vh;
-    background-color: #f3f3f3;
+    background-color: #F9FAFB;
 }
 
 #geographic_map {
@@ -61,3 +133,27 @@ h1,h2,h3,h4 {
     margin-right: auto;
     width: fit-content;
 }
+
+.leftsideheaders{
+    color: #007BFF;
+    font-size:17px;
+    font-family: sans-serif;
+}
+
+
+
+#container1{margin-left: 35px;}
+
+#container2{margin-left: 70px;}
+
+#container3{margin-left: 50px;}
+
+#righttitle{font-size:30px}
+
+#lefttitle{font-size:20px; text-align: center;}
+
+#manualbutton, #exportbutton{margin-top: 17px;}
+
+.righttext{margin-left: 35px;}
+
+.wholepage{width: 100%;}

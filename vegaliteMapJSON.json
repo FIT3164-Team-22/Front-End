@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Weather Stations in Australia",
-    "width": 650,
-    "height": 360,
+    "width": 540,
+    "height": 300,
     "projection": {"type": "mercator"},
     "data": {
       "url": "https://raw.githubusercontent.com/FIT3164-Team-22/Front-End/refs/heads/main/MapOfAustraliaStates.json",
