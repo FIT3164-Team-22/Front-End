@@ -1,0 +1,12 @@
+  {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Weather Stations in your selected Region",
+    "width": 540,
+    "height": 300,
+    "projection": {"type": "mercator"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/FIT3164-Team-22/Front-End/refs/heads/main/VicMap.json",
+      "format": {"type": "topojson", "feature": "MB_2016_VIC"}
+    },
+    "mark": {"type": "geoshape", "stroke":"gold"}
+  } 
