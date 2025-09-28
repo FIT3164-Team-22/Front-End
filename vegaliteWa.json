@@ -8,5 +8,5 @@
       "url": "https://raw.githubusercontent.com/FIT3164-Team-22/Front-End/refs/heads/main/WaMap.json",
       "format": {"type": "topojson", "feature": "MB_2016_WA"}
     },
-    "mark": {"type": "geoshape", "stroke":"gold"}
+    "mark": {"type": "geoshape", "stroke":"#68d5f6"}
   } 
