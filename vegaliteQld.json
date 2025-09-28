@@ -8,5 +8,5 @@
       "url": "https://raw.githubusercontent.com/FIT3164-Team-22/Front-End/refs/heads/main/QldMap.json",
       "format": {"type": "topojson", "feature": "MB_2016_QLD"}
     },
-    "mark": {"type": "geoshape", "stroke":"gold"}
+    "mark": {"type": "geoshape", "stroke":"#e0d8c3"}
   } 
